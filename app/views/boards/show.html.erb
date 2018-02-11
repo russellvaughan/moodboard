@@ -1,0 +1,28 @@
+<div>
+<ul class="nav">
+<li class="nav-item">	
+<%= link_to 'Edit', edit_board_path(@board) %> |
+ </li>
+<li class="nav-item">
+<%= link_to 'Back', boards_path %>
+  </li>
+  </ul>
+<div>
+
+
+<center><h1><%= @board.title %></h1></center>
+<div class="container">
+<div class="row">
+<p id="notice"><%= notice %></p>
+<% if @board.images.attached? %>
+ <% @board.images %>
+ <% @board.images.each do |image| %>
+<div class="col-sm-">
+<div id="drag-1" class="draggable">
+	<%= image_tag image.variant(resize: "300x300") %> 
+</div>
+</div>
+  <% end %>
+<% end %>
+ </div>
+</div>
